@@ -78,12 +78,12 @@ heuristic — the `.edu.au` two-part-TLD variant of the already-documented
 bug. See `docs/adr/0001-tos-monitor-actor.md`.
 
 ```bash
-clojure -M:dev:run     # clean lifecycle + all six HARD-hold checks + a phase-0 hold + a MemStore->DatomicStore swap
-clojure -M:dev:test    # governor contract · phase invariants · store parity · advisor smoke
-clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
+kbb -M:dev:run     # clean lifecycle + all six HARD-hold checks + a phase-0 hold + a MemStore->DatomicStore swap
+kbb -M:dev:test    # governor contract · phase invariants · store parity · advisor smoke
+kbb -M:lint        # clj-kondo (errors fail; CI mirrors this)
 ```
 
-`clojure -M:dev:run` and the test suite always use the deterministic mock-advisor — no
+`kbb -M:dev:run` and the test suite always use the deterministic mock-advisor — no
 live fetch of the company's current privacy policy page and no live
 `kotoba-server`/CACAO publish happen anywhere in this actor. `tosmonitor.advisor/
 llm-advisor` exists as a written, swappable seam but is not invoked. See
